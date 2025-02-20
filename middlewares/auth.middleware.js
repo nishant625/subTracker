@@ -18,9 +18,9 @@ const authorize = async (req, res, next) => {
       });
     }
     const decoded = jwt.verify(token, JWT_SECRET);
-    console.log(decoded)
+    // console.log(decoded)
     const user = await User.findById(decoded.user);
-    console.log(decoded.userId)
+    // console.log(decoded.userId)
     if (!user) return res.status(401).json({ message: "Unauthorized wrong id" });
 
     req.user = user;
